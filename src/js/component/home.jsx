@@ -33,21 +33,22 @@ const Home = () => {
 		};
 	  
 		return (
-		  <div>
-			<div className="card mt-3 align-items-center">
+		  <div className="container">
+			<h1 className="text-center">Todos</h1>
+			<div className="card  border border-4">
 			  <div className="mt-3">
 				<input
 				  type="text"
 				  className="form-control"
 				  value={inputByUser}
 				  onChange={taskAdder}
-				  placeholder="Enter your task"
+				  placeholder="Ingresa tu tarea "
 				  onKeyDown={pressEvent}
 				/>
 			  </div>
 			  <div className="tasks-section mt-3 mx-1">
 				{tasks.length == 0 ? (
-				  <span>Enter your tasks</span>
+				  <span>No hay tareas, por favor añade tareas </span>
 				) : (
 				  tasks.map((task, index) => (
 					<div
@@ -55,11 +56,10 @@ const Home = () => {
 					  className="task justify-content-between text-start container d-flex my-2"
 					>
 					  <p>{task}</p>
-					  <button
-						className="btn btn-danger m-1 delete"
+					  <button type="button" class="btn-close" aria-label="Close"
 						onClick={() => deleteTask(index)}
 					  >
-						<i class="fas fa-trash-alt"></i>
+						
 					  </button>
 					</div>
 				  ))
@@ -67,7 +67,7 @@ const Home = () => {
 			  </div>
 			</div>
 			<div className="card-footer">
-			  <p>Total number of tasks {totalTasks}</p>
+			  <p>Tareas agregadas {totalTasks}</p>
 			</div>
 		  </div>
 		
